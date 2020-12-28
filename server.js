@@ -9,11 +9,24 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('public'));
+//Setting view engine to ejs
+app.set('view engine', 'ejs');
 
 //Simple route
 app.get('/', (req, res) => {
-    res.send('Hello Runners!');
+    res.render('pages/index');
+});
+
+app.get('/about', (req, res) => {
+    res.render('pages/about');
+});
+
+app.get('/login', (req, res) => {
+    res.render('pages/login');
+});
+
+app.get('/signup', (req, res) => {
+    res.render('pages/signup');
 });
 
 //Create new user (runner)
