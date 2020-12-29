@@ -29,22 +29,13 @@ app.get('/signup', (req, res) => {
     res.render('pages/signup');
 });
 
-//Create new user (runner)
-app.post('/users', async (req, res) => {
-    // req.body contains an Object with firstName, lastName, email
-    const { firstName, lastName, userName, email } = req.body;
-    const newUser = await User.create({
-        firstName,
-        lastName,
-        userName,
-        email
-    });
-    
-    // Send back the new user's ID in the response:
-    res.json({
-        id: newUser.id
-    });
-})
+app.get('/profile', (req, res) => {
+    res.render('pages/profile');
+});
+
+//User Routes
+var userRoutes = require('./routes/userRoutes');
+app.use('/users', userRoutes);
 
 app.get('/users', async (req, res) => {
     const users = await User.findAll();
