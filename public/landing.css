@@ -1,0 +1,106 @@
+* {
+    transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);
+    transition-duration: 1s;
+  }
+  
+  body {
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100%;
+  }
+  
+  .bodywrapper {
+    margin-top: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-flow: column nowrap;
+  }
+  
+  .headerwrapper {
+    font-family: "futura-pt-condensed", sans-serif; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+  }
+  
+  .gitrunning {
+    font-size: 60px;
+    color: darkgray;
+    font-family: "futura-pt-condensed", sans-serif; 
+    font-weight: 600;
+  }
+  
+  .buttonwrapper {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    margin-right: 16px;
+    border-right-color: black;
+    border-right-style: dashed;
+    border-right-width: 2px;
+    padding-right: 30px;
+  }
+  
+  .signup h2 a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    color: darkgray;
+    font-family: Arial, sans-serif;
+  }
+  
+  .login h2 a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    color: darkgray;
+    font-family: Arial, sans-serif;
+  }
+  
+  .signup h2 a:hover {
+    text-decoration: none;
+    font-size: 35px;
+    color: black;
+    font-family: "futura-pt-condensed", sans-serif;
+  }
+  
+  .login h2 a:hover {
+    text-decoration: none;
+    font-size: 35px;
+    color: black;
+    font-family: "futura-pt-condensed", sans-serif;
+  }
+  
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    margin-left: 16px;
+  }
+
+  #footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2.5rem;
+  }

@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <%- include('../partials/head'); %>
+  <meta charset="utf-8">
+  <title>GitRunning</title>
+  <link rel="stylesheet" href="landing.css">
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Fredoka+One|Luckiest+Guy|Pacifico|Shrikhand" rel="stylesheet">
 </head>
-<body class="container">
 
-<header>
-    <%- include('../partials/header'); %>
-</header>
+<body>
+  <div class="bodywrapper">
 
-<main>
-<div class="row">
-    <div class="col-sm-8">
-        <div class="jumbotron">
-            <h1>GitRunning</h1>
-            <p>GitRunning is a running app journal created by Josue Majano. A user can create, update and delete a run.</p>
-        </div>
-    </div>
+    <section class="headerwrapper">
+      <div>Welcome to</div>
+      <div class="gitrunning">GitRunning</div>
+    </section>
+    <section class="buttonwrapper">
+      <div class="signup">
+        <h1>Not a member?</h1>
+        <h2><a href="/signup">Signup</a></h2>
+      </div>
+      <div class="login">
+        <h1>Already a member?</h1>
+        <h2><a href="/login">Login</a></h2>
+      </div>
+    </section>
 
-    <div class="col-sm-4">
-        <div class="well">
-            <h3>Look I'm A Sidebar!</h3>
-        </div>
-    </div>
-
-</div>
-</main>
-
-<footer>
-    <%- include('../partials/footer'); %>
-</footer>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+  </div>
 
 </body>
 </html>
