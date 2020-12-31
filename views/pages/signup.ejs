@@ -1,54 +1,70 @@
-<!-- views/signup.ejs -->
 <!doctype html>
 <html>
+
 <head>
-    <title>User Registration</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <style>
-        body        { padding-top:80px; }
-    </style>
+  <meta charset="utf-8">
+  <title>GitRunning Signup</title>
+  <link rel="stylesheet" href="signup.css">
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Fredoka+One|Luckiest+Guy|Pacifico|Shrikhand" rel="stylesheet">
 </head>
+
 <body>
-<div class="container">
 
-<div class="col-sm-6 col-sm-offset-3">
+  <div class="bodywrapper">
 
-    <h1><span class="fa fa-sign-in"></span> Register</h1>
-
-    <!-- LOGIN FORM -->
     <form action="/signup" method="post">
-        <div class="form-group">
-            <label>First Name</label>
-            <input type="text" class="form-control" name="firstname">
+      <h1 class="h1">Sign Up</h1>
+      <fieldset>
+        <div class="labelwrap2">
+          <div class="labelwrap">
+            <label for="name">First Name</label>
+            <input required type="text" name="name" placeholder="First Name">
+          </div>
+          <div class="labelwrap">
+            <label for="name">Last Name</label>
+            <input required type="text" name="name" placeholder="Last Name">
+          </div>
+          <div class="labelwrap">
+            <label for="email">Email</label>
+            <input type="text" name="email" placeholder="example@example.com">
+          </div>
         </div>
-        <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" class="form-control" name="lastname">
+        <div class="labelwrap2">
+          <div class="labelwrap">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Username">
+          </div>
+          <div class="labelwrap">
+            <label for="password">Password</label>
+            <input type="password" value="" placeholder="Password">
+          </div>
         </div>
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" class="form-control" name="username">
+        <div class="form__submit-button">
+          <input type="submit" value="Submit">
         </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
-
-        <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+      </fieldset>
     </form>
 
-    <hr>
-
-    <p>Already have an account? <a href="/login">Login</a></p>
-    <p>Or go <a href="/">Home</a>.</p>
-
-</div>
-
-</div>
+    <div class="welcome">
+      <section class="headerwrapper">
+        <div>Welcome to</div>
+        <div class="gitrunning">GitRunning</div>
+      </section>
+      <section class="buttonwrapper">
+        <div class="signup">
+          <h1>Not a member?</h1>
+          <h2><a href="/signup">Signup</a></h2>
+        </div>
+        <div class="login">
+          <h1>Already a member?</h1>
+          <h2><a href="/login">Login</a></h2>
+        </div>
+      </section>
+      <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+    </div>
+  </div>
 </body>
+
 </html>

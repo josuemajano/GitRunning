@@ -26,6 +26,9 @@
           <h2><a href="/login">Login</a></h2>
         </div>
       </section>
+      <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
     </div>
 
     <form action="/login" method="post">
@@ -36,11 +39,10 @@
         <label for="password">Password</label>
         <input autocomplete="off" type="password" name="password" placeholder="password">
         <div class="submit-button">
-          <input type="Submit">
+          <input type="Submit" value="Submit">
         </div>
       </fieldset>
     </form>
-
   </div>
 </body>
 
