@@ -3,10 +3,36 @@ const app = express();
 const Sequelize = require('sequelize');
 const { User } = require('./models');
 const { Post } = require('./models')
-
 const PORT = 3035;
+
+
 // TODO: Figure out why routes and controller are not working
 // var userRoutes = require('./routes/userRoutes');
+
+//Passport configuration
+const passport = require('passport');
+const GithubStrategy = require('passport-github').Strategy
+const session = require('express-session');
+
+app.use(session({
+    secret: 'abc123',
+    resave: false,
+    saveUninitialized: false
+}));
+
+// Passport config Github Strategy
+passport.use(new GithubStrategy({
+    clientID: '',
+    clientSecret: '',
+    callbackURL: ''
+}, function(accessToken, refreshToken, profile, done){
+    return done(null, profile);
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,10 +47,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/about', (req, res) => {
-    res.render('about');
-});
-
 app.get('/login', (req, res) => {
     res.render('login');
 });
@@ -37,10 +59,14 @@ app.get('/profile', (req, res) => {
     res.render('profile');
 });
 
+app.get('/createrun', (req, res) => {
+    res.render('newrun');
+});
+
 //User Routes
 // app.use('/users', userRoutes);
 
-app.post('/users', async (req, res) => {
+app.post('/signup', async (req, res) => {
     const { firstName, lastName, email, userName } = req.body;
     const newUser = await User.create({
         firstName,
@@ -109,7 +135,7 @@ app.delete('/users/:id', async (req, res) => {
 });
 
 //Posting Runs
-app.post('/posts', async (req, res) => {
+app.post('/createrun', async (req, res) => {
     const { title, date, startTime, endTime, runType, difficulty, comments } = req.body;
     const newPost = await Post.create({
         title,

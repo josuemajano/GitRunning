@@ -1,0 +1,129 @@
+* {
+    transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, .57);
+    transition-duration: .1s;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  h3 {
+    padding-right: 5vw;
+    font-family: "futura-pt-condensed", sans-serif;
+  }
+  
+  body {
+    background-image: url("runner.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bodywrapper {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-flow: row nowrap;
+  }
+  
+  .navbar {
+    margin-top: 5vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    font-family: "futura-pt-condensed", sans-serif;
+    color: darkgray;
+  }
+  
+  span {
+    text-align: right;
+    padding-top: 8px;
+    margin: 8px 10px 5px 10px;
+  }
+  
+  span:hover {
+    margin: 0vw 2vw 0vw 0vw;
+    color: black;
+    font-size: 23px;
+    cursor: pointer;
+  }
+  
+  h1 {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: -3vw;
+    margin-left: 2vw;
+    font-family: "futura-pt-condensed", sans-serif;
+  }
+  
+  .labelwrap {
+    display: flex;
+    flex-flow: column wrap;
+    color: white;
+  }
+  
+  .runtitle {
+    font-family: "futura-pt-condensed", sans-serif;
+    outline: none;
+    margin-bottom: 10px;
+  }
+
+  .start {
+    font-family: "futura-pt-condensed", sans-serif;
+    outline: none;
+    margin-bottom: 10px;
+  }
+
+  .time {
+    font-family: "futura-pt-condensed", sans-serif;
+    outline: none;
+    margin-bottom: 10px;
+  }
+
+  .menu {
+    font-family: "futura-pt-condensed", sans-serif;
+    outline: none;
+    margin-bottom: 10px;
+  }
+  
+  .runbody {
+    font-family: "futura-pt-condensed", sans-serif;
+    outline: none;
+    height: 300px;
+  }
+  
+  fieldset {
+    border-style: none;
+  }
+  
+  .form__submit-button {
+    margin-top: 10px;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+  }
+  
+  .form__submit-button input {
+    font-size: 20px;
+    background-color: none;
+    border-style: none;
+    color: gray;
+    font-family: "futura-pt-condensed", sans-serif;
+  }
+  
+  .form__submit-button input:hover {
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+  }
