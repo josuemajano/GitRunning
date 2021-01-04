@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const Sequelize = require('sequelize');
@@ -22,9 +23,9 @@ app.use(session({
 
 // Passport config Github Strategy
 passport.use(new GithubStrategy({
-    clientID: '',
-    clientSecret: '',
-    callbackURL: ''
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.GITHUB_CALLBACK_URL
 }, function(accessToken, refreshToken, profile, done){
     return done(null, profile);
 }))
@@ -32,11 +33,23 @@ passport.use(new GithubStrategy({
 app.use(passport.initialize());
 app.use(passport.session());
 
+passport.serializeUser((user, done) => {
+    console.log(user);
+    done(null, user);
+})
+
+passport.deserializeUser((user, done) => {
+    console.log(user);
+    done(null, user);
+})
+
+const authRoutes = require('./routes/auth');
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use('/auth', authRoutes);
 
 //Setting view engine to ejs
 app.set('view engine', 'ejs');
@@ -56,7 +69,7 @@ app.get('/signup', (req, res) => {
 });
 
 app.get('/profile', (req, res) => {
-    res.render('profile');
+    res.render('profile',);
 });
 
 app.get('/createrun', (req, res) => {
