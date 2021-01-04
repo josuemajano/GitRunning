@@ -8,7 +8,7 @@ const PORT = 3035;
 
 
 // TODO: Figure out why routes and controller are not working
-// var userRoutes = require('./routes/userRoutes');
+var routes = require('./routes/routes');
 
 //Passport configuration
 const passport = require('passport');
@@ -55,43 +55,8 @@ app.use('/auth', authRoutes);
 app.set('view engine', 'ejs');
 app.set('views', './views/pages');
 
-//Simple route
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/login', (req, res) => {
-    res.render('login');
-});
-
-app.get('/signup', (req, res) => {
-    res.render('signup');
-});
-
-app.get('/profile', (req, res) => {
-    res.render('profile',);
-});
-
-app.get('/createrun', (req, res) => {
-    res.render('newrun');
-});
-
-//User Routes
-// app.use('/users', userRoutes);
-
-app.post('/signup', async (req, res) => {
-    const { firstName, lastName, email, userName } = req.body;
-    const newUser = await User.create({
-        firstName,
-        lastName,
-        email,
-        userName
-    });
-
-    res.json({
-        id: newUser.id
-    });
-})
+//Routes
+app.use('/', routes);
 
 app.get('/users', async (req, res) => {
     const users = await User.findAll();
@@ -146,24 +111,6 @@ app.delete('/users/:id', async (req, res) => {
     });
     res.json(deletedUser);
 });
-
-//Posting Runs
-app.post('/createrun', async (req, res) => {
-    const { title, date, startTime, endTime, runType, difficulty, comments } = req.body;
-    const newPost = await Post.create({
-        title,
-        date,
-        startTime,
-        endTime,
-        runType,
-        difficulty,
-        comments
-    });
-
-    res.json({
-        id: newPost.id
-    });
-})
 
 app.get('/posts', async (req, res) => {
     const posts = await Post.findAll();
