@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html>
 
 <head>
@@ -10,14 +10,10 @@
 
 <body>
   <div class="navbar">
-    <span><a href="./profile">Home</a></span><span><a href="./createrun">Edit a Run</a></span><span><a href="./liked">Delete a Run</a></span><span>logged in as {{#name}}{{.}}{{/name}}</span><span><a href="/">Logout</a></span>
+    <span><a href="./profile">Home</a></span><span>logged in as {{#name}}{{.}}{{/name}}</span><span><a href="/">Logout</a></span>
   </div>
   <div class="bodywrapper">
     <form action="/createrun" method="post">
-      <div>
-        <h3>Welcome, {{#firstName}}{{.}}{{/name}}</h3>
-
-      </div>
       <h1 class="h1">Create a New Run</h1>
       <fieldset>
         <div class="labelwrap">

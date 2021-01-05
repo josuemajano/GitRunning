@@ -24,3 +24,26 @@ exports.create_post = async (req, res) => {
         id: newPost.id
     });
 }
+
+//Delete Post
+exports.deletedPost = async (req, res) => {
+    const { id } = req.params;
+    const deletedPost = await Post.destroy({
+        where: {
+            id
+        }
+    });
+    res.json(deletedPost);
+};
+
+//Update Post
+exports.updatedPost = async (req, res) => {
+    const { id } = req.params;
+    const updatedPost = await Post.update(req.body, {
+        where: {
+            id
+        }
+    });
+    res.json(updatedPost);
+};
+

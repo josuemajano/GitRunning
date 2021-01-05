@@ -4,11 +4,9 @@ const app = express();
 const Sequelize = require('sequelize');
 const { User } = require('./models');
 const { Post } = require('./models')
+const routes = require('./routes/routes');
+const authRoutes = require('./routes/auth');
 const PORT = 3035;
-
-
-// TODO: Figure out why routes and controller are not working
-var routes = require('./routes/routes');
 
 //Passport configuration
 const passport = require('passport');
@@ -43,13 +41,10 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 })
 
-const authRoutes = require('./routes/auth');
-
-
+//Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
-app.use('/auth', authRoutes);
 
 //Setting view engine to ejs
 app.set('view engine', 'ejs');
@@ -57,6 +52,7 @@ app.set('views', './views/pages');
 
 //Routes
 app.use('/', routes);
+app.use('/auth', authRoutes);
 
 app.get('/users', async (req, res) => {
     const users = await User.findAll();
@@ -115,27 +111,6 @@ app.delete('/users/:id', async (req, res) => {
 app.get('/posts', async (req, res) => {
     const posts = await Post.findAll();
     res.json(posts);
-});
-
-app.post('/posts/:id', async (req, res) => {
-    const { id } = req.params;
-    const updatedPost = await Post.update(req.body, {
-      where: {
-        id
-      }
-    });
-    
-    res.json(updatedPost);
-});
-
-app.delete('/posts/:id', async (req, res) => {
-    const { id } = req.params;
-    const deletedPost = await Post.destroy({
-        where: {
-            id
-        }
-    });
-    res.json(deletedPost);
 });
 
 //Catch all Route

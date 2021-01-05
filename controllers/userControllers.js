@@ -20,7 +20,7 @@ exports.signUp = (req, res) => {
 
 //Profile
 exports.userProfile = (req, res) => {
-    res.render('profile',);
+    res.render('profile');
 };
 
 // //Create new user (runner)
@@ -32,11 +32,23 @@ exports.create_user = async (req, res) => {
         email,
         userName
     });
-
-    res.json({
-        id: newUser.id
-    });
+    console.log(req.body);
+    newUser.save().then(function(User) {
+        req.userName = User.userName;
+        req.session.authenticated = true;
+        res.redirect('/login')
+        console.log(req.session);
+    })
 }
+
+//Log In User
+exports.userLogIn = (req, res) => {
+    req.session.loggedIn = true;
+    res.redirect('/profile');
+}
+
+
+
 
 //Find all Runners
 // app.get('/users', async (req, res) => {
