@@ -14,12 +14,34 @@
     <span><a href="./profile">Home</a></span><span><a href="./createrun">Create a New Run</a></span><span><span><a href="/">Logout</a></span>
   </div>
   <div class="bodywrapper">
-    <form action="/editanddelete" method="post">
+    <form>
       <h1 class="h1">Edit and Delete</h1>
       <fieldset>
-        {{#Post}}
-
-        {{/Post}}
+        <div class="labelwrap">
+            <label contentEditable="true" class="title">Title</label>
+          <input contentEditable="true" class="title" type="text" name="title" placeholder="Run Title">
+          <label contentEditable="true" class="start">Date</label>
+          <input type="date" id="start" name="date">
+          <label contentEditable="true" class="time">Start Time</label>
+          <input type="time" id="starttime" name="startTime">
+          <label contentEditable="true" class="time">End Time</label>
+          <input type="time" id="endtime" name="endTime">
+          <label class= "runType" for="menu">Run Type</label>
+          <select contentEditable="true" name="runType" id="menu">
+              <option value="Indoor">Indoor</option>
+              <option value="Outdoor">Outdoor</option>
+          </select>
+          <label class= "menu" contentEditable="true" for="menu">Difficulty</label>
+          <select name="difficulty" id="menu">
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+          </select>
+          <textarea class="runbody" contentEditable="true" type="text" name="comments" placeholder="Write your comments here!"></textarea>
+        </div>
+        <div class="form__submit-button">
+          <input type="submit" value="Submit">
+        </div>
       </fieldset>
     </form>
   </div>

@@ -24,7 +24,7 @@ exports.create_post = async (req, res) => {
         comments
     });
     console.log(newPost);
-    res.render('/editanddelete');
+    res.render('editanddelete');
 }
 
 exports.postedRun = async (req, res) => {
