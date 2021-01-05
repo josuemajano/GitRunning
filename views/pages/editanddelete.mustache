@@ -1,0 +1,28 @@
+<!-- <!DOCTYPE html> -->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>New Run</title>
+  <script>href="../../models/post.js"</script>
+  <link rel="stylesheet" href="newrun.css">
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Fredoka+One|Luckiest+Guy|Pacifico|Shrikhand" rel="stylesheet">
+</head>
+
+<body>
+  <div class="navbar">
+    <span><a href="./profile">Home</a></span><span><a href="./createrun">Create a New Run</a></span><span><span><a href="/">Logout</a></span>
+  </div>
+  <div class="bodywrapper">
+    <form action="/editanddelete" method="post">
+      <h1 class="h1">Edit and Delete</h1>
+      <fieldset>
+        {{#Post}}
+
+        {{/Post}}
+      </fieldset>
+    </form>
+  </div>
+</body>
+
+</html>

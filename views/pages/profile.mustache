@@ -10,7 +10,7 @@
 
 <body>
   <div class="navbar">
-    <span><a href="./home">Home</a></span><span><a href="./createrun">Create New Run</a></span><span><a href="/">Logout</a></span>
+    <span><a href="./home">Home</a></span><span><a href="/createrun">Create New Run</a></span><span><a href="/">Logout</a></span>
   </div>
 
 
@@ -19,19 +19,18 @@
 
     <ul>
       <div>
-        <h3>Welcome!</h3>
-        <h1 class="h1">Recent Runs</h1>
+        <h1 class="h1">Welcome!</h1>
       </div>
       <div class="postsdiv" style="overflow:auto;">
 
-        <=% Post %>
+         {{#post}}
           <div class="postwrapper">
             <div>
           
-              <li class="name"><=%userName%></li>
+              <li class="userName">{{userName}}</li>
 
-              <li class="posttitle"><=% title %>
-                <div> <=% date %> </div>
+              <li class="title"> {{title}}
+                <div> {{date}} </div>
               </li>
               <li class="postbody">{{body}}</li>
             </div>
@@ -40,7 +39,7 @@
               <label>Delete post: </label><input class="submitbtn" type="submit" name="submitbtn" value="{{id}}">
             </form>
           </div>
-          <=% Post %>
+          {{/post}}
 
       </div>
 

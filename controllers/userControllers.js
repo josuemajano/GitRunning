@@ -42,10 +42,30 @@ exports.create_user = async (req, res) => {
 }
 
 //Log In User
-exports.userLogIn = (req, res) => {
-    req.session.loggedIn = true;
-    res.redirect('/profile');
+exports.userLogIn = async (req, res) => {
+    const users = await User.findAll({
+        where: {
+            [Sequelize.Op.or]: [
+                {
+                    userName: req.body.userName
+                }
+            ]
+        }
+    }).then(users => {
+        if (users.userName == userName) {
+            req.session.userName = userName;
+            req.session.userId = user.dataValues.id;
+            req.session.authenticated = true;
+            console.log(req.session);
+
+            res.redirect('/profile');
+        } else {
+            res.redirect('/login');
+            console.log('This is my session', req.session)
+        }
+    })
 }
+
 
 
 

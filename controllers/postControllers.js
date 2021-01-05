@@ -8,6 +8,9 @@ exports.createRun = (req, res) => {
     res.render('newrun');
 };
 
+exports.editDelete = (req, res) => {
+    res.render('editanddelete')
+}
 
 exports.create_post = async (req, res) => {
     const { title, date, startTime, endTime, runType, difficulty, comments } = req.body;
@@ -20,10 +23,14 @@ exports.create_post = async (req, res) => {
         difficulty,
         comments
     });
-    res.json({
-        id: newPost.id
-    });
+    console.log(newPost);
+    res.render('/editanddelete');
 }
+
+exports.postedRun = async (req, res) => {
+    const post = await Post.findAll();
+    res.render('profile', {post});
+};
 
 //Delete Post
 exports.deletedPost = async (req, res) => {
@@ -47,3 +54,22 @@ exports.updatedPost = async (req, res) => {
     res.json(updatedPost);
 };
 
+exports.postedRun = (req, res) => {
+    const Post = models.Post.build({
+        title: req.body.title,
+        date: req.body.date,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        difficulty: req.body.difficulty,
+        comments: req.body.comments
+    })
+    post.save().then(function(Post) {
+        console.log(Post);
+    })
+}
+
+exports.showPosted = (req, res) => {
+    const Post = models.Post.build({
+
+    })
+}

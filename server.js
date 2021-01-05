@@ -1,7 +1,9 @@
 require('dotenv').config()
 const express = require('express');
 const app = express();
+const parseurl = require('parseurl');
 const Sequelize = require('sequelize');
+const mustacheExpress = require('mustache-express');
 const { User } = require('./models');
 const { Post } = require('./models')
 const routes = require('./routes/routes');
@@ -42,12 +44,13 @@ passport.deserializeUser((user, done) => {
 })
 
 //Middleware
+app.engine('mustache', mustacheExpress());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-//Setting view engine to ejs
-app.set('view engine', 'ejs');
+//Setting view engine to mustache
+app.set('view engine', 'mustache');
 app.set('views', './views/pages');
 
 //Routes

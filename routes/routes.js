@@ -14,6 +14,8 @@ router.get('/signup', userController.signUp)
 router.get('/profile', userController.userProfile)
 //Create Run
 router.get('/createrun', postController.createRun)
+//Edit and Delete Runs
+router.get('/editanddelete', postController.editDelete)
 
 
 //User Routes
@@ -21,8 +23,10 @@ router.post('/signup', userController.create_user);
 router.post('/login', userController.userLogIn);
 
 //Post Routes
+//router.get('')
 router.post('/createrun', postController.create_post);
 router.delete('/deleterun/:id', postController.deletedPost);
-router.post('/updatepost/:id', postController.updatedPost);
+router.patch('/updatepost/:id', postController.updatedPost);
+router.get('/profile', postController.postedRun);
 
 module.exports = router;
