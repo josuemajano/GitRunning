@@ -8,7 +8,7 @@ const { User } = require('./models');
 const { Post } = require('./models')
 const routes = require('./routes/routes');
 const authRoutes = require('./routes/auth');
-const PORT = 3035;
+const PORT = process.env.PORT;
 
 //Passport configuration
 const passport = require('passport');

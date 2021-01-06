@@ -24,12 +24,12 @@ exports.create_post = async (req, res) => {
         comments
     });
     console.log(newPost);
-    res.render('editanddelete');
+    res.render('profile');
 }
 
 exports.postedRun = async (req, res) => {
     const post = await Post.findAll();
-    res.render('profile', {post});
+    res.render('editanddelete');
 };
 
 //Delete Post
